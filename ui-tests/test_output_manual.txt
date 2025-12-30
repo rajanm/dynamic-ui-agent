@@ -1,0 +1,69 @@
+
+Running 2 tests using 1 worker
+
+  ✘  1 [chromium] › tests/01_chat_basics.spec.ts:13:7 › Chat Basics › Happy Path: Send message and receive response (44.2s)
+  ✘  2 [chromium] › tests/01_chat_basics.spec.ts:33:7 › Chat Basics › Input Validation: Empty message should not send (37.9s)
+
+
+  1) [chromium] › tests/01_chat_basics.spec.ts:13:7 › Chat Basics › Happy Path: Send message and receive response 
+
+    [31mTest timeout of 30000ms exceeded while running "beforeEach" hook.[39m
+
+      4 | test.describe('Chat Basics', () => {
+      5 |
+    > 6 |   test.beforeEach(async ({ page }) => {
+        |        ^
+      7 |     page.on('console', msg => console.log(`BROWSER LOG: ${msg.text()}`));
+      8 |     await page.goto('/');
+      9 |     // Wait for the app to be stable or verify title
+        at /usr/local/google/home/rajanvasagam/Dev/dynamic-ui-agent/ui-tests/tests/01_chat_basics.spec.ts:6:8
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:4200/", waiting until "load"[22m
+
+
+       6 |   test.beforeEach(async ({ page }) => {
+       7 |     page.on('console', msg => console.log(`BROWSER LOG: ${msg.text()}`));
+    >  8 |     await page.goto('/');
+         |                ^
+       9 |     // Wait for the app to be stable or verify title
+      10 |     await expect(page).toHaveTitle(/Agent/i); // Adjust based on actual title "Vehicle Agent"
+      11 |   });
+        at /usr/local/google/home/rajanvasagam/Dev/dynamic-ui-agent/ui-tests/tests/01_chat_basics.spec.ts:8:16
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/01_chat_basics-Chat-Basics-9658c-essage-and-receive-response-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/01_chat_basics.spec.ts:33:7 › Chat Basics › Input Validation: Empty message should not send 
+
+    Test was interrupted.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+    [2m  - navigating to "http://localhost:4200/", waiting until "load"[22m
+
+
+       6 |   test.beforeEach(async ({ page }) => {
+       7 |     page.on('console', msg => console.log(`BROWSER LOG: ${msg.text()}`));
+    >  8 |     await page.goto('/');
+         |                ^
+       9 |     // Wait for the app to be stable or verify title
+      10 |     await expect(page).toHaveTitle(/Agent/i); // Adjust based on actual title "Vehicle Agent"
+      11 |   });
+        at /usr/local/google/home/rajanvasagam/Dev/dynamic-ui-agent/ui-tests/tests/01_chat_basics.spec.ts:8:16
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results/01_chat_basics-Chat-Basics-c910f-pty-message-should-not-send-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/01_chat_basics.spec.ts:13:7 › Chat Basics › Happy Path: Send message and receive response 
+  1 interrupted
+    [chromium] › tests/01_chat_basics.spec.ts:33:7 › Chat Basics › Input Validation: Empty message should not send 
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

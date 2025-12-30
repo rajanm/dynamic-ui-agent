@@ -1,0 +1,11 @@
+log/
+__pycache__/
+.venv/
+agent_app/__pycache__/
+tests/__pycache__/
+
+# UI Tests
+ui-tests/node_modules/
+ui-tests/test-results/
+ui-tests/playwright-report/
+ui-tests/.cache/

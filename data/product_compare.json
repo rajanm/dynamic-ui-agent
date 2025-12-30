@@ -1,0 +1,23 @@
+{
+  "comparison": {
+    "vehicle1": {
+      "id": "1",
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2024,
+      "price": 28000,
+      "type": "Sedan",
+      "features": ["Reliable", "Fuel Efficient", "Comfortable Ride"]
+    },
+    "vehicle2": {
+      "id": "2",
+      "make": "Honda",
+      "model": "Accord",
+      "year": 2024,
+      "price": 29000,
+      "type": "Sedan",
+      "features": ["Sporty Handling", "Spacious Interior", "Advanced Tech"]
+    },
+    "verdict": "The Toyota Camry offers better value and comfort, while the Honda Accord provides a sportier driving experience and more tech features."
+  }
+}

@@ -1,0 +1,47 @@
+<div class="chat-container">
+  <div class="header">
+    <h2>🚗 {{ title }}</h2>
+  </div>
+
+  <div class="messages">
+    <div
+      *ngFor="let msg of messages"
+      [class]="'message ' + msg.sender + ' ' + (msg.type === 'surface' ? 'surface-container' : '')"
+    >
+      <!-- Text Bubble -->
+      <div *ngIf="msg.type === 'text'" class="bubble">{{ msg.text }}</div>
+
+      <!-- A2UI Surface -->
+      <div *ngIf="msg.type === 'surface'" class="surface-wrapper">
+        <app-a2ui-surface
+          [surfaceId]="msg.surfaceId!"
+          [type]="msg.surfaceType!"
+          [data]="msg.surfaceData"
+        >
+        </app-a2ui-surface>
+      </div>
+    </div>
+    <div *ngIf="loading" class="message agent">
+      <div class="bubble typing">...</div>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input
+      #messageInput
+      [appAutoFocus]="!loading"
+      [(ngModel)]="newMessage"
+      (keyup.enter)="sendMessage()"
+      placeholder="Type a message..."
+      [disabled]="loading"
+    />
+    <button (click)="sendMessage()" [disabled]="!newMessage.trim() || loading">Send</button>
+    <button
+      (click)="clearMessages()"
+      class="clear-button"
+      [disabled]="loading || messages.length === 0"
+    >
+      Clear
+    </button>
+  </div>
+</div>

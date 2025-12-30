@@ -1,0 +1,38 @@
+<div class="flex flex-col h-screen bg-gray-100">
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <div class="flex-shrink-0 flex items-center">
+            <h1 class="text-xl font-bold text-gray-800">Vehicle Agent</h1>
+          </div>
+          <div class="hidden sm:ml-6 sm:flex sm:items-center">
+            <div class="nav-container">
+              <a
+                routerLink="/"
+                routerLinkActive="nav-tab-active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                class="nav-tab"
+              >
+                Conversational UI
+              </a>
+              <a
+                routerLink="/gen-ui"
+                routerLinkActive="nav-tab-active"
+                class="nav-tab"
+              >
+                Generative UI
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 overflow-hidden">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 h-full">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

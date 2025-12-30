@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1",
+    "make": "Toyota",
+    "model": "Camry",
+    "year": 2024,
+    "price": 28000,
+    "color": "Silver",
+    "type": "Sedan",
+    "features": ["Reliable", "Fuel Efficient", "Comfortable Ride", "Safety Sense"]
+  },
+  {
+    "id": "2",
+    "make": "Honda",
+    "model": "Accord",
+    "year": 2024,
+    "price": 29000,
+    "color": "Black",
+    "type": "Sedan",
+    "features": ["Sporty Handling", "Spacious Interior", "Advanced Tech", "Honda Sensing"]
+  },
+  {
+    "id": "3",
+    "make": "Tesla",
+    "model": "Model 3",
+    "year": 2024,
+    "price": 40000,
+    "color": "White",
+    "type": "Sedan",
+    "features": ["Autopilot", "Long Range", "Minimalist Interior", "Supercharging"]
+  },
+  {
+    "id": "4",
+    "make": "Ford",
+    "model": "Explorer",
+    "year": 2024,
+    "price": 36000,
+    "color": "Blue",
+    "type": "SUV",
+    "features": ["Third Row Seating", "Towing Capacity", "Co-Pilot360", "Sync 4"]
+  },
+  {
+    "id": "5",
+    "make": "Toyota",
+    "model": "RAV4",
+    "year": 2024,
+    "price": 30000,
+    "color": "Grey",
+    "type": "SUV",
+    "features": ["Hybrid Option", "All-Wheel Drive", "Compact", "Reliable"]
+  },
+  {
+    "id": "6",
+    "make": "Honda",
+    "model": "CR-V",
+    "year": 2024,
+    "price": 31000,
+    "color": "Red",
+    "type": "SUV",
+    "features": ["Cargo Space", "Fuel Economy", "Safety Features", "Family Friendly"]
+  },
+  {
+    "id": "7",
+    "make": "BMW",
+    "model": "X5",
+    "year": 2024,
+    "price": 65000,
+    "color": "Black",
+    "type": "SUV",
+    "features": ["Luxury Interior", "Performance Handling", "iDrive System", "Premium Sound"]
+  },
+  {
+    "id": "8",
+    "make": "Mercedes-Benz",
+    "model": "C-Class",
+    "year": 2024,
+    "price": 45000,
+    "color": "Silver",
+    "type": "Sedan",
+    "features": ["MBUX Infotainment", "Elegant Design", "Comfort", "Driver Assistance"]
+  },
+  {
+    "id": "9",
+    "make": "Hyundai",
+    "model": "Tucson",
+    "year": 2024,
+    "price": 28500,
+    "color": "White",
+    "type": "SUV",
+    "features": ["Bold Design", "Warranty", "Smart Features", "Value"]
+  },
+  {
+    "id": "10",
+    "make": "Kia",
+    "model": "Telluride",
+    "year": 2024,
+    "price": 37000,
+    "color": "Green",
+    "type": "SUV",
+    "features": ["Spacious 3rd Row", "Premium Feel", "Safety Tech", "Best in Class"]
+  }
+]
