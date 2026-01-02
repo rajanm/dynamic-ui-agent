@@ -1,0 +1,6 @@
+PORT=8000
+MOCK_API_PORT=9999
+MOCK_API_URL=http://localhost:9999
+ALLOWED_ORIGINS=http://localhost:4200,http://localhost:3000,http://127.0.0.1:4200
+UI_PORT=4200
+GOOGLE_API_KEY="<add your gemini 2.5 / 3 api ley?>"

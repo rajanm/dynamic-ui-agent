@@ -44,11 +44,20 @@ The system features a **Dynamic UI** built with Angular that supports rich inter
     ```
 
 2.  **Configure Environment**
-    Create a `.env` file in the root directory (optional if using helper scripts):
+    Create a `.env` file in the root directory to configure the services. This is required for custom configurations.
 
     ```ini
+    # Core Configuration
     GOOGLE_API_KEY="your_api_key_here"
-    API_BASE_URL="http://localhost:9999"
+    
+    # Server Ports & URLs
+    PORT=8000
+    MOCK_API_PORT=9999
+    MOCK_API_URL="http://localhost:9999"
+    UI_PORT=4200
+    
+    # Security
+    ALLOWED_ORIGINS="http://localhost:4200,http://localhost:3000,http://127.0.0.1:4200"
     ```
 
 3.  **Run the Application**
