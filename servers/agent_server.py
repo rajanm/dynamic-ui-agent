@@ -202,10 +202,10 @@ def book_appointment(car_id: str, date: str, email: str) -> str:
         response.raise_for_status()
         data = response.json()
         
-        return f"Appointment confirmed. Status: {data.get('status', 'Confirmed')}."
+        return data.get('message', f"Your appointment is confirmed. Status: {data.get('status', 'Confirmed')}.")
     except Exception as e:
         logger.error(f"Error calling Mock API book: {e}")
-        return "Failed to book appointment due to server error."
+        return "Sorry, failed to book appointment due to server error."
 
 def handle_client_event(event_type: str, payload: Dict[str, Any]) -> str:
     """Handles events sent from the client UI."""

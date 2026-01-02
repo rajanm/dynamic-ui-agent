@@ -34,7 +34,13 @@ export class ChatComponent {
     private agentService: AgentService, 
     private cdr: ChangeDetectorRef,
     private a2uiService: A2UIService
-  ) { }
+  ) { 
+      // Listen for text responses from events
+      this.agentService.agentResponse.subscribe(text => {
+          this.messages.push({ text: text, sender: 'agent', type: 'text' });
+          this.cdr.detectChanges();
+      });
+  }
 
   sendMessage() {
     if (!this.newMessage.trim()) return;

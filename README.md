@@ -1,4 +1,4 @@
-# Vehicle Agent System
+# Vehicle Shopping Agent
 
 A comprehensive conversational AI system designed to assist users with vehicle-related tasks including searching, comparing, booking, and analyzing market trends. Built using Google's GenAI ADK, FastAPI, and Angular.
 
