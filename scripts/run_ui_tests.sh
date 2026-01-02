@@ -16,18 +16,23 @@ trap cleanup EXIT INT TERM
 mkdir -p log
 export COVERAGE_FILE=log/.coverage
 
+# Default Ports if not set
+PORT=${PORT:-8000}
+MOCK_API_PORT=${MOCK_API_PORT:-9999}
+UI_PORT=${UI_PORT:-4200}
+
 echo "Starting Mock API Server..."
 .venv/bin/python -m coverage run -p --source=servers,agent_app -m servers.mock_api_server > log/mock_api_server_test.log 2>&1 &
 SERVER_PID=$!
 
 echo "Starting Agent API Server..."
-export API_BASE_URL="http://127.0.0.1:9999"
+export API_BASE_URL="http://127.0.0.1:$MOCK_API_PORT"
 .venv/bin/python -m coverage run -p --source=servers,agent_app -m servers.agent_server > log/agent_server_test.log 2>&1 &
 API_SERVER_PID=$!
 
 echo "Starting Angular UI..."
 cd web
-npx ng serve --port 4200 --host 0.0.0.0 > ../log/ui_test.log 2>&1 &
+npx ng serve --port $UI_PORT --host 0.0.0.0 > ../log/ui_test.log 2>&1 &
 UI_PID=$!
 cd ..
 
@@ -50,10 +55,10 @@ wait_for_url() {
 }
 
 # Wait for all services
-# Mock API is 9999, Agent Server is 8000, UI is 4200
-wait_for_url "http://localhost:9999/docs" "Mock API" || exit 1
-wait_for_url "http://localhost:8000/health" "Agent Server" || exit 1
-wait_for_url "http://localhost:4200" "Angular UI" || exit 1
+# Mock API is $MOCK_API_PORT, Agent Server is $PORT, UI is $UI_PORT
+wait_for_url "http://localhost:$MOCK_API_PORT/docs" "Mock API" || exit 1
+wait_for_url "http://localhost:$PORT/health" "Agent Server" || exit 1
+wait_for_url "http://localhost:$UI_PORT" "Angular UI" || exit 1
 
 echo "Waiting for UI to stabilize..."
 sleep 5

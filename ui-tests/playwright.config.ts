@@ -8,7 +8,7 @@ export default defineConfig({
   workers: 4,
   reporter: [['html', { open: 'never' }], ['list']],
   use: {
-    baseURL: 'http://localhost:4200',
+    baseURL: process.env['UI_PORT'] ? `http://localhost:${process.env['UI_PORT']}` : 'http://localhost:4200',
     trace: 'on-first-retry',
     headless: true,
     screenshot: 'on',
