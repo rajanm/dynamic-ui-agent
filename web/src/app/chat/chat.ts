@@ -6,6 +6,7 @@ import { AgentService } from '../services/agent';
 import { A2UIService } from '../shared/a2ui/a2ui.service';
 import { AutoFocusDirective } from '../directives/auto-focus.directive';
 import { SurfaceComponent } from '../shared/a2ui/surface.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 interface Message {
   text?: string;
@@ -19,7 +20,7 @@ interface Message {
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule, AutoFocusDirective, SurfaceComponent],
+  imports: [CommonModule, FormsModule, AutoFocusDirective, SurfaceComponent, MarkdownModule],
   templateUrl: './chat.html',
   styleUrls: ['./chat.css']
 })

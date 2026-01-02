@@ -9,7 +9,9 @@
       [class]="'message ' + msg.sender + ' ' + (msg.type === 'surface' ? 'surface-container' : '')"
     >
       <!-- Text Bubble -->
-      <div *ngIf="msg.type === 'text'" class="bubble">{{ msg.text }}</div>
+      <div *ngIf="msg.type === 'text'" class="bubble">
+        <markdown [data]="msg.text"></markdown>
+      </div>
 
       <!-- A2UI Surface -->
       <div *ngIf="msg.type === 'surface'" class="surface-wrapper">

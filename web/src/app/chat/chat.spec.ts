@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+import { provideMarkdown } from 'ngx-markdown';
 
 import { ChatComponent } from './chat';
 import { AgentService } from '../services/agent';
@@ -11,13 +13,15 @@ describe('ChatComponent', () => {
 
   beforeEach(async () => {
     mockAgentService = {
-      sendMessage: () => of({ text: 'Mock response' })
+      sendMessage: () => of({ text: 'Mock response' }),
+      agentResponse: of('Mock agent response').pipe(delay(0))
     };
 
     await TestBed.configureTestingModule({
       imports: [ChatComponent],
       providers: [
-        { provide: AgentService, useValue: mockAgentService }
+        { provide: AgentService, useValue: mockAgentService },
+        provideMarkdown()
       ]
     })
       .compileComponents();
