@@ -436,13 +436,12 @@ app = FastAPI(
 )
 
 # CORS configuration for frontend
+origins_str = os.environ.get("ALLOWED_ORIGINS", "http://localhost:4200,http://localhost:3000,http://127.0.0.1:4200")
+allowed_origins = [origin.strip() for origin in origins_str.split(",")]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:4200", # Angular Default
-        "http://localhost:3000", # Next.js Default
-        "http://127.0.0.1:4200",
-    ],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

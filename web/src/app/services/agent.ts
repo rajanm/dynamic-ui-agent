@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap, Subject } from 'rxjs';
 import { A2UIService } from '../shared/a2ui/a2ui.service';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AgentService {
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = environment.apiUrl;
   private sessionId: string;
 
   // Subject to notify ChatComponent of responses from events

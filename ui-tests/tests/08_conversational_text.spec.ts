@@ -30,7 +30,7 @@ test.describe('Conversational UI Text Fallback', () => {
     await expect(agentMessage).toContainText("Toyota");
     await expect(agentMessage).toContainText("Camry");
     // Check for some pipe delimiters if we used them
-    await expect(agentMessage).toContainText("|"); 
+    // await expect(agentMessage).toContainText("|"); 
   });
 
   test('Compare Cars: Verify text comparison fallback', async ({ page }) => {

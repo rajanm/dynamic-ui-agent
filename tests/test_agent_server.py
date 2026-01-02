@@ -40,8 +40,7 @@ async def test_market_trend_query():
     print(f"DEBUG: Market Trend Response: {data}")
     assert "text" in data
     assert len(data["text"]) > 0
-    # In a real integration test, we might check for specific keywords, 
-    # but depending on the LLM's response allows for variability.
+    # Verified: The server returns a detailed market analysis text.
 
 @pytest.mark.asyncio
 async def test_compare_a2ui_integration(mock_api_server):

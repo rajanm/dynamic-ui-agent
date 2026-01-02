@@ -6,7 +6,7 @@ test.describe('Clear Chat Functionality', () => {
     await page.goto('/');
 
     // Ensure we are on the page
-    await expect(page.getByRole('heading', { name: 'Vehicle Agent' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'vehicle shopping agent' }).first()).toBeVisible();
 
     // Type a message
     const input = page.locator('input');

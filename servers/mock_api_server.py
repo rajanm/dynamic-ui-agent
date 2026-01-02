@@ -1,7 +1,12 @@
 import json
+import os
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Optional
+
+# Load environment variables
+load_dotenv()
 
 app = FastAPI()
 
@@ -71,4 +76,5 @@ async def negotiate_price(negotiation: NegotiationRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=9999)
+    port = int(os.environ.get("MOCK_API_PORT", 9999))
+    uvicorn.run(app, host="0.0.0.0", port=port)
