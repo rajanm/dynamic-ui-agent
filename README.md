@@ -113,6 +113,23 @@ The system follows a modular client-server architecture:
   - `booking-form`: Context-aware form for scheduling.
   - **Event Handling**: Client events (e.g., `rowSelect`) are sent back to the agent for context-aware follow-ups.
 
+### Client-Server Integration (A2UI)
+
+The system uses the **Agent-to-UI (A2UI)** protocol to drive rich interfaces. Instead of just text, the agent sends structured JSON commands that the frontend interprets to render dynamic components.
+
+#### Sequence Diagram: Search & Render Flow
+
+![A2UI Sequence Diagram](docs/a2ui_sequence_diagram.png)
+
+#### Client Events (User Actions)
+
+When a user interacts with a component (e.g., clicking "Book" or submitting a form), the frontend acts as follows:
+
+1.  **Local Updates**: Some actions (like opening a booking form inside a card) are handled locally by `AgentService` for instant feedback.
+2.  **Server Events**: Critical actions (like `formSubmit`) are sent to the server as standard chat messages prefixed with `EVENT:`.
+    *   Example: `EVENT: { "type": "formSubmit", "payload": { ... } }`
+    *   The Server processes this event, calls the `book_appointment` tool, and returns a confirmation message.
+
 ### Backend (Python)
 
 - **Location**: `servers/`, `agent_app/`
@@ -122,6 +139,24 @@ The system follows a modular client-server architecture:
     - **Safety Gate**: Validates all A2UI messages against a strict JSON schema before sending.
   - **Agent Logic** (`agent_app/agent.py`): Defines the `LlmAgent`, tools, and sub-agent hierarchy.
   - **Mock API Server** (`servers/mock_api_server.py`): Simulates an external vehicle inventory and booking system. Serves data from `data/*.json`.
+
+## Built with Google AntiGravity IDE
+
+This entire demo was constructed using the **Google AntiGravity IDE**, an advanced agentic development environment that turns high-level prompts into full-stack applications.
+
+The development process was driven by natural language instructions located in the `__instructions__` directory:
+
+*   [Gemini.md](__instructions__/Gemini.md): Defined the multi-agent backend architecture, tool specifications, and API mock requirements.
+*   [A2UI.md](__instructions__/A2UI.md): Specified the Agent-to-UI (A2UI) protocol, frontend requirements, and generative UI component definitions.
+*   [UI.md](__instructions__/UI.md): Outlined the core requirements for the Angular-based responsive web application and chat interface.
+*   [Testing.md](__instructions__/Testing.md): Provided manual verification steps and test cases for the ADK agent.
+
+The AntiGravity IDE consumed these markdown files and autonomously:
+1.  Scaffolded the **FastAPI** backend and **Angular** frontend.
+2.  Implemented the **Multi-Agent System** using Google GenAI ADK.
+3.  Generated the **Mock Data** and API endpoints.
+4.  Wired up the **A2UI Protocol** for dynamic component rendering.
+5. Beyond the above md files, other instructions were given iteratively to build the demo.
 
 ### Directory Structure
 
