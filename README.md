@@ -156,14 +156,14 @@ The AntiGravity IDE consumed these markdown files and autonomously:
 2.  Implemented the **Multi-Agent System** using Google GenAI ADK.
 3.  Generated the **Mock Data** and API endpoints.
 4.  Wired up the **A2UI Protocol** for dynamic component rendering.
-5. Beyond the above md files, other instructions were given iteratively to build the demo.
+5.  Beyond the above md files, other instructions were given iteratively to build the demo.
 
 ### Directory Structure
 
 ```
 .
 ├── agent_app/       # Agent logic and definitions
-├── data/            # Mock data for the API server
+├── data/            # Mock data for the API server is self contained in repo so that it is easy to run this demo
 ├── scripts/         # Helper shell scripts (run, test, lint)
 ├── servers/         # FastAPI server implementations
 ├── ui-tests/        # Playwright E2E tests
