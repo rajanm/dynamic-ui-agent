@@ -12,7 +12,7 @@ import { ChatComponent } from '../chat/chat';
     <div class="h-full flex flex-col">
        <!-- Reusing ChatComponent but it renders surfaces inline (default) -->
        <!-- This effectively makes this tab identical to the main tab, but user asked for it -->
-       <app-chat class="flex-1" [renderSurfaces]="true" title="Vehicle Agent - Generative UI"></app-chat>
+       <app-chat class="flex-1" [renderSurfaces]="true" title="Vehicle Shopping Agent - Generative UI"></app-chat>
     </div>
   `
 })

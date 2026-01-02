@@ -25,7 +25,7 @@ interface Message {
 })
 export class ChatComponent {
   @Input() renderSurfaces = false; // Default to false for "Conversational UI"
-  @Input() title = 'Vehicle Agent - Conversational UI';
+  @Input() title = 'Vehicle Shopping Agent - Conversational UI';
   messages: Message[] = [];
   newMessage: string = '';
   loading: boolean = false;
