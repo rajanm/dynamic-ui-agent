@@ -1,6 +1,18 @@
 # Vehicle Shopping Agent
 
-A comprehensive conversational AI system designed to assist users with vehicle-related tasks including searching, comparing, booking, and analyzing market trends. Built using Google's GenAI ADK, FastAPI, and Angular.
+A comprehensive conversational AI system designed to assist users with vehicle-related tasks including searching, comparing, booking, and analyzing market trends. Built using Google's Agent Development Kit (ADK), FastAPI, A2UI (Agent to UI protocol), and Angular.
+
+## Generative UI Demo
+
+This demo highlights how multiple types of UI elements such as:
+-  user and agent interactions
+-  lists (for search results
+-  cards (for product details and comparison)
+-  forms (for booking, payments, order confirmation), etc.) 
+
+can be dynamically generated and rendered in a conversational interface.
+
+![Generative UI Demo](docs/vehicle_agent_demo.gif)
 
 ## Project Overview
 
@@ -49,13 +61,13 @@ The system features a **Dynamic UI** built with Angular that supports rich inter
     ```ini
     # Core Configuration
     GOOGLE_API_KEY="your_api_key_here"
-    
+
     # Server Ports & URLs
     PORT=8000
     MOCK_API_PORT=9999
     MOCK_API_URL="http://localhost:9999"
     UI_PORT=4200
-    
+
     # Security
     ALLOWED_ORIGINS="http://localhost:4200,http://localhost:3000,http://127.0.0.1:4200"
     ```
@@ -127,8 +139,8 @@ When a user interacts with a component (e.g., clicking "Book" or submitting a fo
 
 1.  **Local Updates**: Some actions (like opening a booking form inside a card) are handled locally by `AgentService` for instant feedback.
 2.  **Server Events**: Critical actions (like `formSubmit`) are sent to the server as standard chat messages prefixed with `EVENT:`.
-    *   Example: `EVENT: { "type": "formSubmit", "payload": { ... } }`
-    *   The Server processes this event, calls the `book_appointment` tool, and returns a confirmation message.
+    - Example: `EVENT: { "type": "formSubmit", "payload": { ... } }`
+    - The Server processes this event, calls the `book_appointment` tool, and returns a confirmation message.
 
 ### Backend (Python)
 
@@ -146,12 +158,14 @@ This entire demo was constructed using the **Google AntiGravity IDE**, an advanc
 
 The development process was driven by natural language instructions located in the `__instructions__` directory:
 
-*   [Gemini.md](__instructions__/Gemini.md): Defined the multi-agent backend architecture, tool specifications, and API mock requirements.
-*   [A2UI.md](__instructions__/A2UI.md): Specified the Agent-to-UI (A2UI) protocol, frontend requirements, and generative UI component definitions.
-*   [UI.md](__instructions__/UI.md): Outlined the core requirements for the Angular-based responsive web application and chat interface.
-*   [Testing.md](__instructions__/Testing.md): Provided manual verification steps and test cases for the ADK agent.
+- [Gemini.md](__instructions__/Gemini.md): Defined the multi-agent backend architecture, tool specifications, and API mock requirements.
+- [A2UI.md](__instructions__/A2UI.md): Specified the Agent-to-UI (A2UI) protocol, frontend requirements, and generative UI component definitions.
+- [UI.md](__instructions__/UI.md): Outlined the core requirements for the Angular-based responsive web application and chat interface.
+- [Testing.md](__instructions__/Testing.md): Provided manual verification steps and test cases for the ADK agent.
+- [demo_script.md](__instructions__/demo_script.md): Script used for recording the demo video, detailing the specific steps and user interactions using the AntiGravity browser agent.
 
 The AntiGravity IDE consumed these markdown files and autonomously:
+
 1.  Scaffolded the **FastAPI** backend and **Angular** frontend.
 2.  Implemented the **Multi-Agent System** using Google GenAI ADK.
 3.  Generated the **Mock Data** and API endpoints.
